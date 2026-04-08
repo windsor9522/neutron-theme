@@ -1,0 +1,17 @@
+<div class="announcement-bar">
+  ⚡ {{ section.settings.text }}
+  {%- if section.settings.link_url != blank -%}
+    <a href="{{ section.settings.link_url }}">{{ section.settings.link_text }}</a>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {"type": "text", "id": "text", "label": "Message", "default": "ISO 9001 Certified · Global Shipping · 5-Year Warranty on All Systems"},
+    {"type": "text", "id": "link_text", "label": "Link text", "default": "Learn More →"},
+    {"type": "url", "id": "link_url", "label": "Link URL"}
+  ]
+}
+{% endschema %}
