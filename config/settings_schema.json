@@ -1,0 +1,20 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Neutron",
+    "theme_version": "1.0.0",
+    "theme_author": "Neutron LLC",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "General",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  }
+]
