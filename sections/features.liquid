@@ -1,0 +1,90 @@
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">{{ section.settings.label }}</div>
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+      <p class="section-sub">{{ section.settings.subheading }}</p>
+    </div>
+
+    <div class="features-grid">
+      {%- for block in section.blocks -%}
+      <div class="feature-card" {{ block.shopify_attributes }}>
+        <div class="feature-icon">
+          {%- case block.settings.icon -%}
+          {%- when 'solar' -%}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          {%- when 'globe' -%}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+          </svg>
+          {%- when 'shield' -%}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          {%- when 'truck' -%}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+          {%- when 'bolt' -%}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+          {%- else -%}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+          </svg>
+          {%- endcase -%}
+        </div>
+        <h3 class="feature-title">{{ block.settings.title }}</h3>
+        <p class="feature-text">{{ block.settings.text }}</p>
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Features",
+  "settings": [
+    {"type": "text", "id": "label", "label": "Label", "default": "Why Choose Neutron"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Built for Scale"},
+    {"type": "text", "id": "subheading", "label": "Subheading", "default": "From a single rooftop to a 100MW utility project — we supply the components that keep the world powered."}
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {"type": "select", "id": "icon", "label": "Icon", "options": [
+          {"value": "solar", "label": "Solar"},
+          {"value": "globe", "label": "Globe"},
+          {"value": "shield", "label": "Shield"},
+          {"value": "truck", "label": "Truck"},
+          {"value": "bolt", "label": "Bolt"},
+          {"value": "check", "label": "Check"}
+        ], "default": "solar"},
+        {"type": "text", "id": "title", "label": "Title", "default": "One-Stop Supply"},
+        {"type": "textarea", "id": "text", "label": "Description", "default": "Panels, inverters, mounting, cables, and monitoring — all from a single supplier. Simplified logistics, unified warranty."}
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Features",
+    "blocks": [
+      {"type": "feature", "settings": {"icon": "solar", "title": "Complete System Supply", "text": "Panels, inverters, mounting, cables, and monitoring — all from a single trusted supplier with unified warranty coverage."}},
+      {"type": "feature", "settings": {"icon": "globe", "title": "Global Logistics Network", "text": "Sea, air, and express delivery to 50+ countries. Customs documentation, port clearance, and door-to-site delivery."}},
+      {"type": "feature", "settings": {"icon": "shield", "title": "Certified & Tested", "text": "IEC 61215, CE, TÜV, and ISO 9001 certified. Every batch lab-tested before shipment. Performance guaranteed."}},
+      {"type": "feature", "settings": {"icon": "bolt", "title": "Fast Turnaround", "text": "Sample orders within 7 days. Bulk orders dispatched within 15–25 days. Emergency stock available for urgent projects."}},
+      {"type": "feature", "settings": {"icon": "truck", "title": "B2B Pricing", "text": "Volume discounts for distributors, EPC contractors, and developers. MOQ from 10kW. Spot and long-term supply contracts."}},
+      {"type": "feature", "settings": {"icon": "check", "title": "Technical Support", "text": "Dedicated solar engineers available for system design, layout optimization, and on-site commissioning assistance."}}
+    ]
+  }]
+}
+{% endschema %}
