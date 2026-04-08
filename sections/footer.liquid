@@ -43,35 +43,34 @@
       <div>
         <div class="footer-col-title">Products</div>
         <div class="footer-links">
-          {%- for link in linklists.footer-products.links -%}
-            <a href="{{ link.url }}">{{ link.title }}</a>
-          {%- else -%}
-            <a href="/collections/solar-panels">Solar Panels</a>
-            <a href="/collections/inverters">Inverters</a>
-            <a href="/collections/batteries">Battery Storage</a>
-            <a href="/collections/mounting">Mounting Systems</a>
-            <a href="/collections/accessories">Accessories</a>
-          {%- endfor -%}
+          <a href="/collections/photovoltaic">PV Equipment</a>
+          <a href="/collections/substation">Prefab Substations</a>
+          <a href="/collections/hv-switchgear">HV Switchgear</a>
+          <a href="/collections/lv-switchgear">LV Switchgear</a>
+          <a href="/collections/ev-charging">EV Charging</a>
+          <a href="/collections/power-quality">Power Quality</a>
+          <a href="/collections/distribution">Distribution Equipment</a>
+          <a href="/collections/control-systems">Control Systems</a>
         </div>
       </div>
 
       <div>
         <div class="footer-col-title">Company</div>
         <div class="footer-links">
-          <a href="/pages/about">About Us</a>
+          <a href="/pages/about">About NEUTRON</a>
           <a href="/pages/certifications">Certifications</a>
-          <a href="/pages/partners">Partners</a>
+          <a href="/pages/factory">Our Factory</a>
           <a href="/blogs/news">News</a>
-          <a href="/pages/contact">Contact</a>
+          <a href="/pages/contact">Contact Us</a>
         </div>
       </div>
 
       <div>
         <div class="footer-col-title">Support</div>
         <div class="footer-links">
-          <a href="/pages/contact">Get a Quote</a>
-          <a href="/pages/shipping">Shipping Policy</a>
-          <a href="/policies/refund-policy">Warranty</a>
+          <a href="/pages/contact">Request a Quote</a>
+          <a href="/pages/shipping">Shipping & Delivery</a>
+          <a href="/policies/refund-policy">Warranty Policy</a>
           <a href="/pages/faq">FAQ</a>
           <a href="/pages/contact">Technical Support</a>
         </div>
@@ -79,12 +78,13 @@
     </div>
 
     <div class="footer-bottom">
-      <div class="footer-copyright">© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</div>
+      <div class="footer-copyright">© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved. · Wenzhou, Zhejiang, China</div>
       <div class="footer-certs">
         <span class="cert-badge">ISO 9001</span>
-        <span class="cert-badge">IEC 61215</span>
+        <span class="cert-badge">IEC</span>
         <span class="cert-badge">CE</span>
         <span class="cert-badge">TÜV</span>
+        <span class="cert-badge">CB</span>
       </div>
     </div>
   </div>
@@ -94,7 +94,7 @@
 {
   "name": "Footer",
   "settings": [
-    {"type": "textarea", "id": "tagline", "label": "Tagline", "default": "Your trusted partner for photovoltaic systems, components, and technical support. Serving solar installers and developers worldwide."},
+    {"type": "textarea", "id": "tagline", "label": "Tagline", "default": "Complete electrical power solutions — from photovoltaic systems to HV switchgear, substations, and EV charging infrastructure. Factory direct from Wenzhou, China."},
     {"type": "text", "id": "email", "label": "Email"},
     {"type": "text", "id": "whatsapp", "label": "WhatsApp number (digits only)"},
     {"type": "url", "id": "linkedin", "label": "LinkedIn URL"}
