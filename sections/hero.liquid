@@ -5,7 +5,7 @@
 
   {%- if section.settings.image != blank -%}
   <div class="hero-image">
-    {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'eager', alt: 'Neutron manufacturing' }}
+    {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', alt: 'Neutron electrical equipment' }}
   </div>
   {%- endif -%}
 
@@ -27,9 +27,7 @@
       <div class="hero-actions fade-up fade-up-4">
         <a href="{{ section.settings.primary_button_url }}" class="btn btn-primary btn-lg">
           {{ section.settings.primary_button_text }}
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="{{ section.settings.secondary_button_url }}" class="btn btn-ghost btn-lg">
           {{ section.settings.secondary_button_text }}
@@ -49,6 +47,10 @@
           <div class="hero-stat-number">{{ section.settings.stat3_number }}<span>{{ section.settings.stat3_suffix }}</span></div>
           <div class="hero-stat-label">{{ section.settings.stat3_label }}</div>
         </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">{{ section.settings.stat4_number }}<span>{{ section.settings.stat4_suffix }}</span></div>
+          <div class="hero-stat-label">{{ section.settings.stat4_label }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -59,24 +61,27 @@
   "name": "Hero",
   "settings": [
     {"type": "image_picker", "id": "image", "label": "Background image"},
-    {"type": "text", "id": "badge_text", "label": "Badge text", "default": "Trusted Solar Partner Since 2015"},
-    {"type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "ONE-STOP"},
-    {"type": "text", "id": "heading_line2", "label": "Heading line 2 (blue)", "default": "PHOTOVOLTAIC"},
+    {"type": "text", "id": "badge_text", "label": "Badge text", "default": "ISO 9001 Certified Manufacturer · Wenzhou, China"},
+    {"type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "COMPLETE"},
+    {"type": "text", "id": "heading_line2", "label": "Heading line 2 (blue)", "default": "ELECTRICAL POWER"},
     {"type": "text", "id": "heading_line3", "label": "Heading line 3 (orange)", "default": "SOLUTIONS"},
-    {"type": "textarea", "id": "subheading", "label": "Subheading", "default": "Industrial-grade solar systems, inverters, and components for distributors, EPC contractors, and large-scale installers worldwide."},
-    {"type": "text", "id": "primary_button_text", "label": "Primary button", "default": "Browse Products"},
+    {"type": "textarea", "id": "subheading", "label": "Subheading", "default": "From photovoltaic junction boxes to high-voltage switchgear, substations, EV charging infrastructure and power quality equipment — NEUTRON LLC delivers complete electrical system solutions to projects worldwide."},
+    {"type": "text", "id": "primary_button_text", "label": "Primary button", "default": "View Product Catalog"},
     {"type": "url", "id": "primary_button_url", "label": "Primary button URL", "default": "/collections/all"},
     {"type": "text", "id": "secondary_button_text", "label": "Secondary button", "default": "Request a Quote"},
     {"type": "url", "id": "secondary_button_url", "label": "Secondary button URL", "default": "/pages/contact"},
-    {"type": "text", "id": "stat1_number", "label": "Stat 1 number", "default": "8"},
+    {"type": "text", "id": "stat1_number", "label": "Stat 1", "default": "10"},
     {"type": "text", "id": "stat1_suffix", "label": "Stat 1 suffix", "default": "+"},
-    {"type": "text", "id": "stat1_label", "label": "Stat 1 label", "default": "Years Experience"},
-    {"type": "text", "id": "stat2_number", "label": "Stat 2 number", "default": "50"},
-    {"type": "text", "id": "stat2_suffix", "label": "Stat 2 suffix", "default": "+"},
-    {"type": "text", "id": "stat2_label", "label": "Stat 2 label", "default": "Countries Served"},
-    {"type": "text", "id": "stat3_number", "label": "Stat 3 number", "default": "2"},
-    {"type": "text", "id": "stat3_suffix", "label": "Stat 3 suffix", "default": "GW+"},
-    {"type": "text", "id": "stat3_label", "label": "Stat 3 label", "default": "Capacity Shipped"}
+    {"type": "text", "id": "stat1_label", "label": "Stat 1 label", "default": "Years Manufacturing"},
+    {"type": "text", "id": "stat2_number", "label": "Stat 2", "default": "24"},
+    {"type": "text", "id": "stat2_suffix", "label": "Stat 2 suffix", "default": ""},
+    {"type": "text", "id": "stat2_label", "label": "Stat 2 label", "default": "Product Lines"},
+    {"type": "text", "id": "stat3_number", "label": "Stat 3", "default": "50"},
+    {"type": "text", "id": "stat3_suffix", "label": "Stat 3 suffix", "default": "+"},
+    {"type": "text", "id": "stat3_label", "label": "Stat 3 label", "default": "Countries Exported"},
+    {"type": "text", "id": "stat4_number", "label": "Stat 4", "default": "500"},
+    {"type": "text", "id": "stat4_suffix", "label": "Stat 4 suffix", "default": "+"},
+    {"type": "text", "id": "stat4_label", "label": "Stat 4 label", "default": "Projects Delivered"}
   ],
   "presets": [{"name": "Hero"}]
 }
