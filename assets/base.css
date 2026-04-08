@@ -1285,3 +1285,38 @@ ul { list-style: none; }
 @media (max-width: 600px) {
   .product-categories-grid { grid-template-columns: 1fr; }
 }
+
+/* Footer 5-column layout with contact */
+.footer-grid-5 {
+  grid-template-columns: 1.8fr 1fr 1fr 1fr 1.4fr;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.footer-contact-item svg {
+  color: var(--orange);
+  opacity: 0.85;
+}
+
+.footer-contact-item a:hover {
+  color: var(--orange);
+}
+
+@media (max-width: 1100px) {
+  .footer-grid-5 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
