@@ -1,0 +1,44 @@
+<section class="section stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      {%- for block in section.blocks -%}
+      <div class="stat-item" {{ block.shopify_attributes }}>
+        <div class="stat-number">
+          <span data-counter data-target="{{ block.settings.number }}">{{ block.settings.number }}</span>{{ block.settings.suffix }}
+        </div>
+        <div class="stat-label">{{ block.settings.label }}</div>
+        {%- if block.settings.sublabel != blank -%}
+          <div class="stat-sub">{{ block.settings.sublabel }}</div>
+        {%- endif -%}
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Stats Bar",
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {"type": "text", "id": "number", "label": "Number", "default": "8"},
+        {"type": "text", "id": "suffix", "label": "Suffix", "default": "+"},
+        {"type": "text", "id": "label", "label": "Label", "default": "Years in Business"},
+        {"type": "text", "id": "sublabel", "label": "Sub-label"}
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Stats Bar",
+    "blocks": [
+      {"type": "stat", "settings": {"number": "8", "suffix": "+", "label": "Years Experience", "sublabel": "Since 2015"}},
+      {"type": "stat", "settings": {"number": "50", "suffix": "+", "label": "Countries Served", "sublabel": "Global Distribution"}},
+      {"type": "stat", "settings": {"number": "2", "suffix": "GW+", "label": "Capacity Shipped", "sublabel": "Cumulative"}},
+      {"type": "stat", "settings": {"number": "500", "suffix": "+", "label": "Projects Completed", "sublabel": "Residential to Utility"}}
+    ]
+  }]
+}
+{% endschema %}
