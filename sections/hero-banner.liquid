@@ -1,0 +1,76 @@
+<section class="neutron-hero">
+  <div class="hero-bg">
+    <div class="hero-grid-lines"></div>
+  </div>
+
+  {%- if section.settings.image != blank -%}
+  <div class="hero-image">
+    {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', alt: 'Neutron electrical equipment' }}
+  </div>
+  {%- endif -%}
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge fade-up fade-up-1">
+        <span class="hero-badge-dot"></span>
+        {{ section.settings.badge_text }}
+      </div>
+
+      <h1 class="hero-heading fade-up fade-up-2">
+        {{ section.settings.heading_line1 }}
+        <span>{{ section.settings.heading_line2 }}</span>
+        <em>{{ section.settings.heading_line3 }}</em>
+      </h1>
+
+      <p class="hero-sub fade-up fade-up-3">{{ section.settings.subheading }}</p>
+
+      <div class="hero-actions fade-up fade-up-4">
+        <a href="{{ section.settings.primary_button_url | default: '/collections/all' }}" class="btn btn-primary btn-lg">
+          {{ section.settings.primary_button_text }}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="{{ section.settings.secondary_button_url | default: '/pages/contact' }}" class="btn btn-ghost btn-lg">
+          {{ section.settings.secondary_button_text }}
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number">10<span>+</span></div>
+          <div class="hero-stat-label">Years Manufacturing</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">24</div>
+          <div class="hero-stat-label">Product Lines</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">50<span>+</span></div>
+          <div class="hero-stat-label">Countries Exported</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">500<span>+</span></div>
+          <div class="hero-stat-label">Projects Delivered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {"type": "image_picker", "id": "image", "label": "Background image"},
+    {"type": "text", "id": "badge_text", "label": "Badge text", "default": "ISO 9001 Certified Manufacturer · Wenzhou, China"},
+    {"type": "text", "id": "heading_line1", "label": "Heading line 1", "default": "COMPLETE"},
+    {"type": "text", "id": "heading_line2", "label": "Heading line 2", "default": "ELECTRICAL POWER"},
+    {"type": "text", "id": "heading_line3", "label": "Heading line 3", "default": "SOLUTIONS"},
+    {"type": "textarea", "id": "subheading", "label": "Subheading", "default": "From PV junction boxes to high-voltage switchgear, substations, EV charging and power quality equipment — NEUTRON LLC delivers complete electrical solutions worldwide."},
+    {"type": "text", "id": "primary_button_text", "label": "Primary button", "default": "View Product Catalog"},
+    {"type": "url", "id": "primary_button_url", "label": "Primary button URL"},
+    {"type": "text", "id": "secondary_button_text", "label": "Secondary button", "default": "Request a Quote"},
+    {"type": "url", "id": "secondary_button_url", "label": "Secondary button URL"}
+  ],
+  "presets": [{"name": "Hero"}]
+}
+{% endschema %}
