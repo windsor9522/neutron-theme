@@ -1,0 +1,105 @@
+<section class="product-page">
+  <div class="container">
+    <div class="product-layout">
+      <div class="product-gallery">
+        <div class="product-main-img">
+          {%- if product.featured_image -%}
+            {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'eager', alt: product.title }}
+          {%- else -%}
+            <div style="width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:var(--surface-2);">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.2">
+                <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+              </svg>
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if product.images.size > 1 -%}
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px;">
+          {%- for image in product.images limit: 4 -%}
+          <div style="border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);aspect-ratio:1;">
+            {{ image | image_url: width: 200 | image_tag: loading: 'lazy', alt: product.title }}
+          </div>
+          {%- endfor -%}
+        </div>
+        {%- endif -%}
+      </div>
+
+      <div class="product-details">
+        <p style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">
+          {%- for collection in product.collections limit: 1 -%}{{ collection.title }}{%- endfor -%}
+        </p>
+        <h1 class="product-title-lg">{{ product.title }}</h1>
+        <div class="product-price-lg">
+          {{ product.price | money }}
+          {%- if product.compare_at_price > product.price -%}
+            <span style="font-size:18px;color:var(--muted);text-decoration:line-through;margin-left:12px;">{{ product.compare_at_price | money }}</span>
+          {%- endif -%}
+        </div>
+
+        <div class="product-desc">{{ product.description }}</div>
+
+        {%- form 'product', product -%}
+          {%- if product.has_only_default_variant == false -%}
+          <div style="margin-bottom:24px;">
+            {%- for option in product.options_with_values -%}
+            <div style="margin-bottom:16px;">
+              <label style="font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:10px;">
+                {{ option.name }}
+              </label>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                {%- for value in option.values -%}
+                <label style="cursor:pointer;">
+                  <input type="radio" name="option{{ forloop.index }}" value="{{ value }}" style="display:none;">
+                  <span style="display:inline-block;padding:8px 16px;border:1px solid var(--border-strong);border-radius:var(--radius);font-size:14px;color:var(--muted);transition:all var(--transition);">{{ value }}</span>
+                </label>
+                {%- endfor -%}
+              </div>
+            </div>
+            {%- endfor -%}
+          </div>
+          {%- endif -%}
+
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          <button type="submit" name="add" class="btn btn-primary btn-lg add-to-cart"
+            {%- unless product.selected_or_first_available_variant.available -%}disabled{%- endunless -%}>
+            {%- if product.selected_or_first_available_variant.available -%}
+              Add to Cart
+            {%- else -%}
+              Out of Stock
+            {%- endif -%}
+          </button>
+        {%- endform -%}
+
+        <a href="/pages/contact?product={{ product.title | url_encode }}" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center;margin-top:12px;">
+          Request Custom Quote
+        </a>
+
+        <div style="margin-top:36px;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);">
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:var(--accent);">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+              5-Year Product Warranty
+            </div>
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:var(--accent);">
+                <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/>
+              </svg>
+              Worldwide Shipping Available
+            </div>
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:var(--accent);">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              IEC / CE / TÜV Certified
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
